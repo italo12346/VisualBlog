@@ -2,6 +2,7 @@ const checkBox = document.querySelector('#dark-mode')
 const page = document.querySelector('body')
 const container = document.querySelector('.container')
 let cont = 0
+let next = 1
 checkBox.addEventListener('change', () => {
     if (cont == 0) {
         cont++;
@@ -20,6 +21,22 @@ checkBox.addEventListener('change', () => {
             ;
         container.style.cssText =
             'background-color: antiquewhite;'
+            
             ;
     }
 })
+
+
+setInterval(
+    ()=>{
+        nextImage();
+    },2000
+)
+
+function nextImage(){
+    document.getElementById("slide"+next).checked=true;
+    next++
+    if(next > 3){
+        next=1;
+    }
+}
